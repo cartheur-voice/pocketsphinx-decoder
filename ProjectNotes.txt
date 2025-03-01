@@ -1,0 +1,6 @@
+March 2024
+Pocketsphinx spoken voice detector/decoder project
+
+01.03.2025
+    1144: Starting a separate track to get a confidence of what code to write.
+    
