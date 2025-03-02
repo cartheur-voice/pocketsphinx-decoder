@@ -1,17 +1,13 @@
-﻿using System;
-using System.IO;
-using System.Threading;
-using System.Threading.Tasks;
-using Cartheur.Presents;
-using Cartheur.Animals;
+﻿using Cartheur.Presents;
 using Cartheur.Animals.Utilities;
 using Cartheur.Animals.Core;
+using SpeechDetection;
 
 namespace App
 {
     class Program
     {
-        public static Detector VoiceRecorder { get; private set; }
+        public static SpeechDetection.Detector VoiceRecorder { get; private set; }
         public static int RecordingDuration { get; private set; }
         public static LoaderPaths Configuration;
         private static Aeon _thisAeon;
@@ -23,25 +19,21 @@ namespace App
 {
             // Create the app with settings.
             Configuration = new LoaderPaths("Debug");
-            _thisAeon = new Aeon("dot");
+            _thisAeon = new Aeon("hug");
             // Load the given application configuration.
             _thisAeon.LoadSettings(Configuration.PathToSettings);
             TrainingDataFiles = _thisAeon.GlobalSettings.GrabSetting("trainingdatafiles");
             FileName = _thisAeon.GlobalSettings.GrabSetting("filename");
             UseFile = Convert.ToBoolean(_thisAeon.GlobalSettings.GrabSetting("usefile"));
             // Create an instance of the Detector
-            var detector = new .Classifier();
-            classifier.LoadData(TrainingDataFiles);
+            VoiceRecorder = new Detector();
             // Set the recording duration
             RecordingDuration = 1000;
-            if (!UseFile)
-            {
-                VoiceRecorder = new Recorder();
-                await VoiceRecorder.Record(ReturnRecordingFilePath("recorded"), RecordingDuration);
-                Console.WriteLine("Started recording...");
-                VoiceRecorder.RecordingFinished += RecordingEvent;
-            }
-            Console.WriteLine("Getting the file for analysis...");
+            await VoiceRecorder.Record(ReturnRecordingFilePath("recorded"), RecordingDuration);
+            Console.WriteLine("Started recording...");
+            VoiceRecorder.RecordingFinished += RecordingEvent;
+            Console.WriteLine("File recorded.");
+            // Run pocketsphinx to detect what was spoken.
             //string audioFilePath = ReturnRecordingFilePath("recorded");
             // Send over for the file for analysis and return the approximated emotion.
             try
@@ -62,7 +54,7 @@ namespace App
             //var emotion = classifier.PredictEmotion(FileName);
 
             // Display the classification result
-            Console.WriteLine($"The predicted emotion is: {emotion}");
+            
 
             static string ReturnRecordingFilePath(string filename)
             {
