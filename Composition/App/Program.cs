@@ -21,7 +21,6 @@ namespace App
             _thisAeon = new Aeon("hug");
             // Load the given application configuration.
             _thisAeon.LoadSettings(Configuration.PathToSettings);
-            TrainingDataFiles = _thisAeon.GlobalSettings.GrabSetting("trainingdatafiles");
             FileName = _thisAeon.GlobalSettings.GrabSetting("filename");
             UseFile = Convert.ToBoolean(_thisAeon.GlobalSettings.GrabSetting("usefile"));
             // Create an instance of the Recorder.
@@ -33,26 +32,10 @@ namespace App
             VoiceRecorder.RecordingFinished += RecordingEvent;
             Console.WriteLine("File recorded.");
             // Run pocketsphinx to detect what was spoken.
-            //string audioFilePath = ReturnRecordingFilePath("recorded");
-            // Send over for the file for analysis and return the approximated emotion.
-            try
-            {
-                //DetectEmotion = new Boagaphish.Analytics.DetectEmotion(ReturnRecordingFilePath(OutputDetectionFileName), "linux");
-            }
-            catch (Exception ex)
-            {
-
-            }
-
-            //Thread.Sleep(2000);
-            // Load the data
-
-            // Train the model
-            //classifier.TrainModel();
-            // Predict the emotion
-            //var emotion = classifier.PredictEmotion(FileName);
-
-            // Display the classification result
+            var output = PocketSphinx.StartBashProcess("pocketsphinx single" + ReturnRecordingFilePath("recorded"));
+             // Display the classification result
+            Console.WriteLine("Output: " + output.StandardOutput.ReadToEnd());
+            Console.ReadLine();
             
 
             static string ReturnRecordingFilePath(string filename)
