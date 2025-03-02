@@ -127,7 +127,7 @@ namespace App
             {
                 var loader = new AeonLoader(ThisAeon);
                 ThisAeon.IsAcceptingUserInput = false;
-                loader.LoadAeon(configuration.PathToBlankFile);
+                loader.LoadAeon(configuration.PathToTrainingData);
                 Logging.WriteLog(@"Blank robot loaded", Logging.LogType.Information, Logging.LogCaller.SharedFunction);
                 ThisAeon.IsAcceptingUserInput = true;
             }
