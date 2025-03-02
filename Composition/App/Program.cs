@@ -27,7 +27,7 @@ namespace App
             // Set the recording duration
             RecordingDuration = 7000;
             var path = Path.Combine(LoaderPaths.ActiveRuntime, LoaderPaths.SavePath, FileName + ".wav");
-            Console.WriteLine(PocketSphinx.StartBashProcess("arecord -vv --format=cd --duration=2 " + path));
+            Console.WriteLine(PocketSphinx.StartBashProcess("arecord -vv -r 16000 -c 1 -f S16_LE -d 2 " + path));
             //VoiceRecorder.Record(ReturnRecordingFilePath("recorded"), RecordingDuration);
             //VoiceRecorder.RecordingFinished += RecordingEvent;
             Console.WriteLine("File recorded.");
