@@ -128,32 +128,8 @@ namespace App
                 var loader = new AeonLoader(ThisAeon);
                 ThisAeon.IsAcceptingUserInput = false;
                 loader.LoadAeon(configuration.PathToTrainingData);
-                Logging.WriteLog(@"Blank robot loaded", Logging.LogType.Information, Logging.LogCaller.SharedFunction);
-                ThisAeon.IsAcceptingUserInput = true;
-            }
-            catch (Exception ex)
-            {
-                Logging.WriteLog(ex.Message, Logging.LogType.Error, Logging.LogCaller.SharedFunction);
-                return false;
-            }
-            return true;
-        }
-        /// <summary>
-        /// Saves the recorded file.
-        /// </summary>
-        /// <param name="thisAeon"></param>
-        /// <param name="configuration"></param>
-        /// <returns></returns>
-        public static bool SaveRecordedFile(this Aeon thisAeon, LoaderPaths configuration)
-        {
-            ThisAeon = thisAeon;
-            try
-            {
-                var loader = new AeonLoader(ThisAeon);
+                Logging.WriteLog(@"Training data loaded", Logging.LogType.Information, Logging.LogCaller.SharedFunction);
                 ThisAeon.IsAcceptingUserInput = false;
-                loader.LoadAeon(configuration.PathToBlankFile);
-                Logging.WriteLog(@"Blank robot loaded", Logging.LogType.Information, Logging.LogCaller.SharedFunction);
-                ThisAeon.IsAcceptingUserInput = true;
             }
             catch (Exception ex)
             {

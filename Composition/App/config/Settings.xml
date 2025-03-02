@@ -5,7 +5,7 @@
   <item name="ip" value="Copyright 2003-2025 Cartheur"/>
   <item name="version" value="0.0.1"/>
   <item name="trainingdatadirectory" value="../datasets"/>
-  <item name="recordedoutputdirectory" value="recordings/recorded.wav"/> 
+  <item name="recordedoutputdirectory" value="recordings"/> 
   <item name="usefile" value="false"/>
   <item name="logfile" value="logs"/>
 </root>
