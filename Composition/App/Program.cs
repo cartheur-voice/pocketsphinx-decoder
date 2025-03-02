@@ -25,10 +25,11 @@ namespace App
             UseFile = Convert.ToBoolean(_thisAeon.GlobalSettings.GrabSetting("usefile"));
             // Create an instance of the Recorder.
             VoiceRecorder = new Recorder();
+            // Notify, perhaps the tonals from david are good here.
+            Console.WriteLine("Started recording...");
             // Set the recording duration
             RecordingDuration = 1000;
             await VoiceRecorder.Record(ReturnRecordingFilePath("recorded"), RecordingDuration);
-            Console.WriteLine("Started recording...");
             VoiceRecorder.RecordingFinished += RecordingEvent;
             Console.WriteLine("File recorded.");
             // Run pocketsphinx to detect what was spoken.
