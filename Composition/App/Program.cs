@@ -32,7 +32,7 @@ namespace App
             //VoiceRecorder.RecordingFinished += RecordingEvent;
             Console.WriteLine("File recorded.");
             // Run pocketsphinx to detect what was spoken.
-            var output = PocketSphinx.StartBashProcess("pocketsphinx single" + ReturnRecordingFilePath("recorded"));
+            var output = PocketSphinx.StartBashProcess("pocketsphinx single" + ReturnRecordingFilePath(FileName));
              // Display the classification result
             Console.WriteLine("Output: " + output.StandardOutput.ReadToEnd());
             Console.ReadLine();
