@@ -1,13 +1,12 @@
 ﻿using Cartheur.Presents;
 using Cartheur.Animals.Utilities;
 using Cartheur.Animals.Core;
-using SpeechDetection;
 
 namespace App
 {
     class Program
     {
-        public static SpeechDetection.Detector VoiceRecorder { get; private set; }
+        public static Recorder VoiceRecorder { get; private set; }
         public static int RecordingDuration { get; private set; }
         public static LoaderPaths Configuration;
         private static Aeon _thisAeon;
@@ -25,8 +24,8 @@ namespace App
             TrainingDataFiles = _thisAeon.GlobalSettings.GrabSetting("trainingdatafiles");
             FileName = _thisAeon.GlobalSettings.GrabSetting("filename");
             UseFile = Convert.ToBoolean(_thisAeon.GlobalSettings.GrabSetting("usefile"));
-            // Create an instance of the Detector
-            VoiceRecorder = new Detector();
+            // Create an instance of the Recorder.
+            VoiceRecorder = new Recorder();
             // Set the recording duration
             RecordingDuration = 1000;
             await VoiceRecorder.Record(ReturnRecordingFilePath("recorded"), RecordingDuration);
