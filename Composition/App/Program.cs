@@ -20,12 +20,16 @@ namespace App
 {
             // Create an instance of the Recorder.
             VoiceRecorder = new Recorder();
+            Configuration = new LoaderPaths("Debug");
+            FileName = "recorded";
             // Notify, perhaps the tonals from david are good here.
             Console.WriteLine("Started recording...");
             // Set the recording duration
             RecordingDuration = 7000;
-            VoiceRecorder.Record(ReturnRecordingFilePath("recorded"), RecordingDuration);
-            VoiceRecorder.RecordingFinished += RecordingEvent;
+            var path = Path.Combine(LoaderPaths.ActiveRuntime, LoaderPaths.SavePath, FileName + ".wav");
+            Console.WriteLine(PocketSphinx.StartBashProcess("arecord -vv --format=cd --duration=2 " + path));
+            //VoiceRecorder.Record(ReturnRecordingFilePath("recorded"), RecordingDuration);
+            //VoiceRecorder.RecordingFinished += RecordingEvent;
             Console.WriteLine("File recorded.");
             // Run pocketsphinx to detect what was spoken.
             var output = PocketSphinx.StartBashProcess("pocketsphinx single" + ReturnRecordingFilePath("recorded"));

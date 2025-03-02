@@ -54,7 +54,7 @@ namespace Cartheur.Presents
         {
             get
             {
-                var path = Path.Combine(ActiveRuntime, SharedFunctions.PathDebugFolder + @"..\recordings");
+                var path = Path.Combine(ActiveRuntime, SharedFunctions.PathDebugFolder + @"/recordings");
                 return new Uri(path).LocalPath;
             }
         }
