@@ -3,4 +3,5 @@ Pocketsphinx spoken voice detector/decoder project
 
 01.03.2025
     1144: Starting a separate track to get a confidence of what code to write.
+    1149: Using the voice-emotion project as code template.
     
