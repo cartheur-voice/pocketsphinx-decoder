@@ -2,7 +2,7 @@
 <root>
   <!-- General settings -->
   <item name="buildconfiguration" value="Debug"/>
-  <item name="ip" value="Copyright 2003-2025 Cartheur"/>
+  <item name="ip" value="Copyright 2019-2025 Cartheur"/>
   <item name="version" value="0.0.1"/>
   <item name="trainingdatadirectory" value="../datasets"/>
   <item name="recordedoutputdirectory" value="recordings"/> 
