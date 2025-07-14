@@ -9,4 +9,5 @@ Pocketsphinx spoken voice detector/decoder solo project
 14.07.2025
     1424: As am approaching this feature, what is up?
     1439: Microphone connection squirrley, don't totally plug-in to the extender cable. Was expensive but plays cheap.
+    1613: Recorder flawless, Pocketsphinx v5 shit.
     
