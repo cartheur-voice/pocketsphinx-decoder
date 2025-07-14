@@ -8,4 +8,5 @@ Pocketsphinx spoken voice detector/decoder solo project
     1432: Pretty far into this but not satisfactory. Make VS time is needed.
 14.07.2025
     1424: As am approaching this feature, what is up?
+    1439: Microphone connection squirrley, don't totally plug-in to the extender cable. Was expensive but plays cheap.
     
