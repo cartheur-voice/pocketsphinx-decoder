@@ -36,15 +36,15 @@ namespace App
              // Display the classification result
             Console.WriteLine("Output: " + output.StandardOutput.ReadToEnd());
             Console.ReadLine();
-            
 
-            static string ReturnRecordingFilePath(string filename)
-            {
-                return Path.Combine(LoaderPaths.ActiveRuntime, LoaderPaths.SavePath, filename + ".wav");
-            }
+            await Task.CompletedTask;
         }
 
-        private static void RecordingEvent(object source, EventArgs e)
+        static string ReturnRecordingFilePath(string filename)
+        {
+            return Path.Combine(LoaderPaths.ActiveRuntime, LoaderPaths.SavePath, filename + ".wav");
+        }
+        static void RecordingEvent(object source, EventArgs e)
         {
             Console.WriteLine("Recording has completed.");
         }
