@@ -21,7 +21,7 @@ namespace App
             // Create an instance of the Recorder.
             VoiceRecorder = new Recorder();
             Configuration = new LoaderPaths("Debug");
-            FileName = "recorded";
+            FileName = "recorded_" + DateTime.Now.ToString("yyyyMMddHHmmss");
             // Notify, perhaps the tonals from david are good here.
             Console.WriteLine("Started recording...");
             // Set the recording duration
